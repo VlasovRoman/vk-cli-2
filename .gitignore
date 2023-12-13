@@ -3,7 +3,7 @@ docs.json
 __dummy.html
 *.o
 *.obj
-vk-client
+vk-cli-2
 vk
 out
 .idea
@@ -17,4 +17,3 @@ vk.sublime-workspace
 debuildtmp
 debs
 *.7z
-

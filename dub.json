@@ -1,8 +1,8 @@
 {
-  "name": "vk",
-  "description": "Terminal client for vk.com",
-  "authors": ["HaCk3D", "substanceof"],
-  "homepage": "https://github.com/HaCk3Dq/vk",
+  "name": "vk-cli-2",
+  "description": "Fork of HaCk3D's terminal client for vk.com",
+  "authors": ["RomanVlasov", "HaCk3D(previously)", "substanceof(previously)"],
+  "homepage": "https://github.com/RomanVlasov/vk-cli-2",
   "license": "Apache-2.0",
   "dependencies": {
     "ncurses": "*"
@@ -14,11 +14,11 @@
   "configurations": [
     {
       "name": "debug",
-      "buildRequirements": ["allowWarnings"],
+      "buildRequirements": ["allowWarnings"]
     },
     {
       "name": "release-shared",
-      "buildRequirements": ["silenceDeprecations"],
+      "buildRequirements": ["silenceDeprecations"]
     },
     {
       "name": "release-static",
