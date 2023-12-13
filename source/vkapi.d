@@ -343,7 +343,7 @@ class VkApi {
             throw new ApiErrorException(resp.toPrettyString(), 0);
         }
 
-        if(resp.type == JSON_TYPE.OBJECT) {
+        if(resp.type == JSONType.object) {
             if("error" in resp){
                 try {
                     auto eobj = resp["error"];
@@ -564,7 +564,7 @@ return {"conv": m, "ou": onl@.id, "os": onl@.online};`;
         auto resp = vkget("account.getCounters", [ "filter": ft ]);
         vkCounters rt;
 
-        if(resp.type == JSON_TYPE.ARRAY) return rt;
+        if(resp.type == JSONType.array) return rt;
 
         foreach(c; resp.object.keys) switch (c) {
             case "messages": rt.messages = resp[c].integer.to!int; break;
@@ -657,7 +657,7 @@ return {"conv": m, "ou": onl@.id, "os": onl@.online};`;
         auto params = [ "group_ids": gids ];
         auto resp = vkget("groups.getById", params);
 
-        if(resp.type != JSON_TYPE.ARRAY) return rt;
+        if(resp.type != JSONType.array) return rt;
 
         foreach(g; resp.array) {
             rt ~= vkGroup(g["id"].integer.to!int * -1, g["name"].str);

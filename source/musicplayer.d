@@ -308,12 +308,12 @@ class mpv: Thread {
     try {
       //dbm("mpv: " ~ rc);
       auto m = parseJSON(rc);
-      if(m.type != JSON_TYPE.OBJECT) return;
+      if(m.type != JSONType.object) return;
       if(
         "request_id" in m &&
         m["request_id"].integer == endRequestId &&
         "data" in m &&
-        m["data"].type == JSON_TYPE.TRUE
+        m["data"].type == JSONType.true_
       ) {
         endReached();
       }
