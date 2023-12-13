@@ -17,7 +17,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import deimos.ncurses.ncurses;
+import deimos.ncurses;
 import core.stdc.locale, core.thread, core.stdc.stdlib:exit;
 import core.sys.posix.signal;
 import std.string, std.stdio, std.process,
@@ -228,7 +228,7 @@ struct Win {
     {callback:&open, getter: &GetMusic},
     {callback:&open, getter: &GenerateHelp},
     {callback:&open, getter: &GenerateSettings},
-    {callback:&exit}
+    {callback:&_exit}
   ],
   buffer, mbody, playerUI;
   vkAudio[] shuffledMusic;
@@ -375,7 +375,7 @@ void color() {
   start_color;
   use_default_colors;
   for (short i = 0; i < Colors.max; i++) init_pair(i, i, -1);
-  for (short i = 1; i < Colors.max+1; i++) init_pair((Colors.max+1+i).to!short, i, -1.to!short);
+  for (short i = 1; i < Colors.max+1; i++) init_pair((Colors.max+1+i).to!short, i, -1);
   init_pair(Colors.max, 0, -1);
   init_pair(Colors.max+1, -1, -1);
   init_pair(Colors.max*2+1, 0, -1);
@@ -965,7 +965,7 @@ wstring[] run(string[] args) {
   return output;
 }
 
-void exit(ref ListElement le) {
+void _exit(ref ListElement le) {
   win.key = k_q;
 }
 
